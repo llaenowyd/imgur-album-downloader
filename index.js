@@ -35,6 +35,15 @@ const cleanType =
   )
 
 // prettier-ignore
+const addLink2 =
+  R.map(
+    R.chain(
+      R.set(R.lensProp('link2')),
+      ({id, type}) => `https://i.imgur.com/${id}.${type}`
+    )
+  )
+
+// prettier-ignore
 const addNumber =
   R.compose(
     R.map(R.apply(R.merge)),
@@ -84,7 +93,7 @@ const fetchImage =
         R.set(R.lensProp('image')),
         R.compose(
           got,
-          R.prop('link')
+          R.prop('link2')
         )
       )
     )
@@ -109,6 +118,7 @@ const routine =
     fetchImage,
     addOutputPath,
     addNumber,
+    addLink2,
     cleanType,
     simplifyImageDescriptors,
     extractImageDescriptors
