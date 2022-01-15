@@ -1,4 +1,4 @@
-## Node-JS imgur-albun-downloader
+## Node-JS imgur-album-downloader
 
 ### Dependency Profile
 
